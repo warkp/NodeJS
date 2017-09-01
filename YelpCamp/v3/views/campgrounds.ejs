@@ -1,0 +1,25 @@
+<% include partials/header %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Welcome to YelpCamp</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <a class="btn btn-light" href="/campgrounds/new">Add new Campground</a>
+  </div>
+</div>
+
+<div class="row">
+<% campgrounds.forEach((campground) => { %>
+<div class="col-md-3 col-sm-6">
+	<div class="card" style="width: 20rem;">
+	  <img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
+	  <div class="card-body">
+	    <h4 class="card-title"><%= campground.name %></h4>
+	    <p class="card-text"><%= campground.description %></p>
+	    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+	  </div> 
+	</div>
+</div>
+<% }); %>
+</div>
+
+<% include partials/footer %>
