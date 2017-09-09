@@ -1,0 +1,22 @@
+{
+  "name": "node_test",
+  "version": "1.0.0",
+  "description": "node test for enuke",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "himanshu kandpal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "fs": "0.0.1-security",
+    "mocha": "^3.5.0",
+    "n-readlines": "^0.2.8",
+    "path": "^0.12.7"
+  }
+}
