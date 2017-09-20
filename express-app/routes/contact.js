@@ -17,8 +17,8 @@ router.post('/post', function(req,res,next){
   });
 
   var mailOptions = {
-    from: +req.body.email,
-    to: 'condegrat@gmail.com',
+    from: "Bradly Cooper <codegrat@gmail.com>",
+    to: 'himanshukp324@gmail.com',
     subject: 'You have a new message from ' +req.body.name,
     text: 'You have a new message from ' +req.body.name+ ' with email address ' +req.body.email+ ' . Message: ' +req.body.message,
     html: '<p>You have a new message from <ul> <li>Name:' +req.body.name+ '</li> <li>Email: '+req.body.email+'</li> <li>Message: '+req.body.message+'</li> </ul></p>'
