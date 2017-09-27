@@ -4,6 +4,14 @@ var express       = require('express'),
     logger        = require('morgan'),
     cookieParser  = require('cookie-parser'),
     bodyParser    = require('body-parser'),
+    session       = require("express-session"),
+    passport      = require("passport"),
+    LocalStrategy = require("passport-local").Strategy,
+    multer        = require("multer"),
+    flash         = require("connect-flash"),
+    mongo         = require("mongodb"),
+    mongoose      = require("mongoose"),
+    db            = mongoose.connection,
     index         = require('./routes/index'),
     about         = require('./routes/about'),
     contact       = require('./routes/contact');
@@ -14,11 +22,31 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// handle file upload
+app.use(multer({dest:'./uploads'}));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// handle express session
+app.use(session({
+  secret:'secret',
+  saveUninitialized=true,
+  resave=true
+}));
+
+// passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// validator
+app.use(ExpressValidator({
+
+}));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
